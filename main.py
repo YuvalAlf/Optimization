@@ -1,7 +1,10 @@
+import time
+
 import cvxpy as cp
 
 from multiplication_matrix import mul_matrix
 from poly_coefficients import *
+
 
 y = cp.Variable(35)
 y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13, y14, y15, y16, y17, y18, y19, y20, y21, y22, y23, y24, y25, \
@@ -19,9 +22,13 @@ poly = y27 * b2011 + y28 * b2020 + y29 * b2101 + y1 * b0004 + y2 * b0013 + y3 * 
        y20 * b1102 + y21 * b1111 + y22 * b1120 + y5 * b0040 + y6 * b0103 + y7 * b0112 + y8 * b0121 + y9 * b0130 +\
        y10 * b0202 + y11 * b0211 + y12 * b0220
 
+
+start_time = time.time()
 prob = cp.Problem(cp.Maximize(poly), sos_constraint)
 prob.solve()
+end_time = time.time()
 
 print("The optimal value is", prob.value)
 print("The moments are: ")
 print(y.value)
+print(f"Time: {(end_time - start_time) * 1000}ms")
