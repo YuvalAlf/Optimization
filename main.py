@@ -22,7 +22,6 @@ poly = y27 * b2011 + y28 * b2020 + y29 * b2101 + y1 * b0004 + y2 * b0013 + y3 * 
        y20 * b1102 + y21 * b1111 + y22 * b1120 + y5 * b0040 + y6 * b0103 + y7 * b0112 + y8 * b0121 + y9 * b0130 +\
        y10 * b0202 + y11 * b0211 + y12 * b0220
 
-
 start_time = time.time()
 prob = cp.Problem(cp.Maximize(poly), sos_constraint)
 prob.solve()
